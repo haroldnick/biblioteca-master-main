@@ -1,7 +1,7 @@
 site_name: Documentación de LegisOffice
 
 nav: 
-  - Inicio: 'index.md'
+  - Inicio: 'index.rst'
   - LegisXperta: 'legisxperta.md'
   - GestionHumana: 'gestionhumana.md'
   - LegisComex: 'legiscomex.md'

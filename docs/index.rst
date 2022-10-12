@@ -1,7 +1,7 @@
 LEGISOFFICE
 ================================
 
-..toctree: :
+.. toctree: :
     :caption: about
 
     about

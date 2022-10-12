@@ -1,6 +1,6 @@
 # <img src="iconos/logolo.png" width="300px" float="rigth">
 
-LegisOffice® Es un software especializado en la gestión de procesos judiciales, expedientes jurídicos, procesos administrativos y consultoría, que te ayuda a mantener el control de los casos y expedientes en un solo lugar.
+LegisOffice® Es un software especializado en la gestión de procesos judiciales, expedientes jurídicos, procesos administrativos y consultoría, que te ayuda a mantener el control de los casos y expedientes en un solo lugar. Caption
 
 ## ¿Quiénes lo usan?
 

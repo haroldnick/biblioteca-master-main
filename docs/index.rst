@@ -1,12 +1,7 @@
-LEGISOFFICE
+DOCUMENTACIÓN DE BIBLIOTECA
 ================================
 
 .. toctree: :
-    :caption: bloclegis
-
-    bloclegis
-
-.. toctree: :
-    :caption: Guia
+    :caption: authenticated
 
     authenticated

@@ -2,6 +2,11 @@ LEGISOFFICE
 ================================
 
 .. toctree: :
-    :caption: about
+    :caption: bloclegis
 
-    about
+    bloclegis
+
+.. toctree: :
+    :caption: Guia
+
+    authenticated

@@ -1,28 +1,36 @@
-# <img src="iconos/logolo.png" width="300px" float="rigth">
+# DOCUMENTACIÓN DE BIBLIOTECA
 
-LegisOffice® Es un software especializado en la gestión de procesos judiciales, expedientes jurídicos, procesos administrativos y consultoría, que te ayuda a mantener el control de los casos y expedientes en un solo lugar. Caption
+Esta es una documentación de prueba creada dentro del Curso de Django utilizando la librería
+MKDOCS para publicarlo en **ReadTheDocs**
 
-## ¿Quiénes lo usan?
+## Requerimientos
 
-Esta aplicación en la nube accesible desde Web y App es útil para:
+- Clona el siguiente repositorio: [Repositorio de Biblioteca](https://github.com/developerpe/biblioteca).
 
-* Oficinas jurídicas
-* Bufetes de abogados
-* Consultorios jurídicos
-* Despachos judiciales
+## Login
 
-## LEGISOFFICE te permite
+```python
+class Login(FormView):
+    template_name = 'login.html'
+    form_class = FormularioLogin
+    success_url = reverse_lazy('index')
 
-<img src="iconos/descargar.png" width="20px" float="rigth">&nbsp;&nbsp; Descargar Reportes Gerenciales y Diseña tus versiones personalizadas.
+    @method_decorator(csrf_protect)
+    @method_decorator(never_cache)
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return HttpResponseRedirect(self.get_success_url())
+        else:
+            return super(Login, self).dispatch(request, *args, **kwargs)
 
-<img src="iconos/circulo_carga.png" width="20px" float="rigth">&nbsp;&nbsp; Tener trazabilidad completa de los procesos
+    def form_valid(self, form):
+        login(self.request, form.get_user())
+        return super(Login, self).form_valid(form)
+```
 
-<img src="iconos/documento.png" width="20px" float="rigth">&nbsp;&nbsp; Obtener un informe detallado con las tareas, responsables, tiempos de ejecución
+## Project layout
 
-<img src="iconos/campana.png" width="20px" float="rigth">&nbsp;&nbsp;Alerta de las actuaciones procesales
-
-<img src="iconos/cargar.png" width="20px" float="rigth">&nbsp;&nbsp; Llevar tu expediente de manera electrónica
-
-
-    
-
+    mkdocs.yml    # The configuration file.
+    docs/
+        index.md  # The documentation homepage.
+        ...       # Other markdown pages, images and other files.

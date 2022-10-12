@@ -1,7 +1,13 @@
 DOCUMENTACIÓN DE BIBLIOTECA
-================================
+===========================
 
-.. toctree: :
-    :caption: authenticated
+.. toctree::
+    :caption: Introduccion
+
+    introduction
+
+.. toctree::
+    :caption: Guía de Usuario
 
     authenticated
+    about

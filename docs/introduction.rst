@@ -1,29 +1,44 @@
-LegisOffice
-================================
-LegisOffice® Es un software especializado en la gestión de procesos
-judiciales, expedientes jurídicos, procesos administrativos y
-consultoría, que te ayuda a mantener el control de los casos y
-expedientes en un solo lugar. Cambio jaja
+DOCUMENTACIÓN DE BIBLIOTECA
+===========================
 
-¿Quiénes lo usan?
------------------
+Esta es una documentación de prueba creada dentro del Curso de Django
+utilizando la librería MKDOCS para publicarlo en **ReadTheDocs**
 
-Esta aplicación en la nube accesible desde Web y App es útil para:
+Requerimientos
+--------------
 
--  Oficinas jurídicas
--  Bufetes de abogados
--  Consultorios jurídicos
--  Despachos judiciales
+-  Clona el siguiente repositorio: `Repositorio de
+   Biblioteca <https://github.com/developerpe/biblioteca>`__.
 
-LEGISOFFICE te permite
-----------------------
+Login
+-----
 
-Descargar Reportes Gerenciales y Diseña tus versiones personalizadas.
+.. code:: python
 
-Tener trazabilidad completa de los procesos
+    class Login(FormView):
+        template_name = 'login.html'
+        form_class = FormularioLogin
+        success_url = reverse_lazy('index')
 
-Obtener un informe detallado con las tareas, responsables, tiempos de
-ejecución
+        @method_decorator(csrf_protect)
+        @method_decorator(never_cache)
+        def dispatch(self, request, *args, **kwargs):
+            if request.user.is_authenticated:
+                return HttpResponseRedirect(self.get_success_url())
+            else:
+                return super(Login, self).dispatch(request, *args, **kwargs)
 
-Alerta de las actuaciones procesales
+        def form_valid(self, form):
+            login(self.request, form.get_user())
+            return super(Login, self).form_valid(form)
+
+Project layout
+--------------
+
+::
+
+    mkdocs.yml    # The configuration file.
+    docs/
+        index.md  # The documentation homepage.
+        ...       # Other markdown pages, images and other files.
 
